@@ -1,7 +1,11 @@
 <header class="header">
   <nav class="nav">
     <ul class="header_menu">
-      <li class="nav-link"><%= link_to current_user.name, edit_user_registration_path %>さん</li>
+      <li class="nav-link">
+        <%= link_to edit_user_path(current_user) do %>
+          <%= current_user.name %>さん
+        <% end %>
+      </li>
       <li class="header_menu_title"><%= link_to "kanban", root_path, class: "nav-link" %></li>
       <li>
         <ul class="header_menu_inner">

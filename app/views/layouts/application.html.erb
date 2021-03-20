@@ -12,15 +12,8 @@
   <body>
     <%= render 'partial/header' if current_user %>
 
-    <% if flash[:notice] %>
-      <div class="alert alert-info">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="alert alert-danger">
-        <%= flash[:alert] %>
-      </div>
+    <% flash.each do |key, value| %>
+      <p class = "alert alert-primary pt-2  mb-0 w-auto"><%= value %><p>
     <% end %>
 
     <%= yield %>
