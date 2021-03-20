@@ -7,6 +7,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
+      flash[:success] = "リストを作成しました"
       redirect_to root_path
     else
       render :new
@@ -18,6 +19,7 @@ class ListsController < ApplicationController
   
   def update
     if @list.update(list_params)
+      flash[:success] = "リストを更新しました"  
       redirect_to root_path
     else
       render :edit
@@ -26,7 +28,7 @@ class ListsController < ApplicationController
   
   def destroy
     @list.destroy
-    
+    flash[:success] = "リストを削除しました"
     redirect_to root_path
   end
   
